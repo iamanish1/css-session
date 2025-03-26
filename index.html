@@ -6,57 +6,113 @@
     <title>Complete HTML & CSS Documentation</title>
     <style>
         /* Main documentation styling */
+             /* Base Responsive Styles */
+             :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #4285f4;
+            --text-color: #333;
+            --light-bg: #f9f9f9;
+            --white: #ffffff;
+            --gray-light: #f0f0f0;
+            --gray-medium: #ddd;
+            --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --font-code: 'Courier New', Courier, monospace;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: var(--font-main);
             line-height: 1.6;
-            color: #333;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Responsive Layout */
+        .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
-            background-color: #f9f9f9;
+            padding: 0 15px;
         }
         
+        /* Header */
         header {
-            background-color: #2c3e50;
-            color: white;
+            background-color: var(--primary-color);
+            color: var(--white);
             padding: 20px;
-            border-radius: 5px;
-            margin-bottom: 30px;
             text-align: center;
+            margin-bottom: 30px;
         }
         
-        h1, h2, h3, h4 {
-            color: #2c3e50;
-        }
-        
-        h1 {
-            margin-top: 0;
-        }
-        
+        /* Sections */
         section {
-            background-color: white;
+            background-color: var(--white);
             padding: 20px;
-            border-radius: 5px;
             margin-bottom: 20px;
+            border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         
+        /* Typography */
+        h1, h2, h3, h4 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+        
+        h1 { font-size: 2rem; }
+        h2 { font-size: 1.75rem; }
+        h3 { font-size: 1.5rem; }
+        h4 { font-size: 1.25rem; }
+        
+        /* Code Blocks */
         pre {
-            background-color: #f5f5f5;
+            background-color: var(--gray-light);
             padding: 15px;
             border-radius: 5px;
             overflow-x: auto;
+            font-family: var(--font-code);
+            font-size: 0.9rem;
         }
         
         code {
-            font-family: 'Courier New', Courier, monospace;
-            background-color: #f5f5f5;
+            font-family: var(--font-code);
+            background-color: var(--gray-light);
             padding: 2px 5px;
             border-radius: 3px;
+            font-size: 0.9rem;
         }
         
+        /* Tables */
+        .property-table, .comparison-table, .units-table, .master-property-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            overflow-x: auto;
+            display: block;
+        }
+        
+        .property-table th, .property-table td,
+        .comparison-table th, .comparison-table td,
+        .units-table th, .units-table td,
+        .master-property-table th, .master-property-table td {
+            border: 1px solid var(--gray-medium);
+            padding: 8px;
+            text-align: left;
+        }
+        
+        .property-table th, .comparison-table th,
+        .units-table th, .master-property-table th {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+        
+        /* Examples and Notes */
         .example {
-            border: 1px solid #ddd;
+            border: 1px solid var(--gray-medium);
             padding: 15px;
             margin: 15px 0;
             background-color: #fafafa;
@@ -65,375 +121,126 @@
         
         .note {
             background-color: #e7f4ff;
-            border-left: 4px solid #2c3e50;
-            padding: 10px 15px;
+            border-left: 4px solid var(--primary-color);
+            padding: 15px;
             margin: 15px 0;
         }
         
-        .property-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-        
-        .property-table th, .property-table td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-        
-        .property-table th {
-            background-color: #f2f2f2;
-        }
-        
-        .property-table tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-        
-        /* Demo styling for examples */
-        .box {
-            background-color: red;
-            height: 100%;
-            width: 100%;
-            color: black;
-            padding: 10px;
-            margin: 10px 0;
-        }
-        
-        .Heading {
-            color: red;
-            font-weight: bold;
-            text-decoration: underline;
-        }
-        
-        .style-demo {
-            background-color: aquamarine;
-            color: blue;
-            padding: 5px;
-        }
-        
-        .container {
-            border: 2px solid black;
-            padding: 10px;
-            margin: 10px;
-        }
-        
-        .child {
-            background-color: lightgray;
-            padding: 5px;
-            margin: 5px;
-        }
-        
-        .demo-p {
-            font-size: 5vmin;
-            font-weight: bold;
-            font-family: "Arial";
-            color: blue;
-        }
+        /* Level Tracks */
         .level-track {
-        display: flex;
-        gap: 20px;
-        margin-bottom: 30px;
-    }
-    
-    .level {
-        flex: 1;
-        padding: 15px;
-        border-radius: 5px;
-    }
-    
-    .basic {
-        background-color: #e8f5e9;
-        border-left: 4px solid #4caf50;
-    }
-    
-    .intermediate {
-        background-color: #e3f2fd;
-        border-left: 4px solid #2196f3;
-    }
-    
-    .advanced {
-        background-color: #f3e5f5;
-        border-left: 4px solid #9c27b0;
-    }
-    
-    .master-property-table {
-        width: 100%;
-        border-collapse: collapse;
-        margin: 20px 0;
-    }
-    
-    .master-property-table th, 
-    .master-property-table td {
-        border: 1px solid #ddd;
-        padding: 10px;
-        text-align: left;
-    }
-    
-    .master-property-table th {
-        background-color: #2c3e50;
-        color: white;
-    }
-    
-    .master-property-table tr:nth-child(even) {
-        background-color: #f9f9f9;
-    }
-    
-    .master-property-table tr:hover {
-        background-color: #f0f0f0;
-    }
-    
-    .master-property-table code {
-        background-color: #f5f5f5;
-        padding: 2px 4px;
-        border-radius: 3px;
-        font-size: 0.9em;
-    }
-    .layout-system {
-        margin-bottom: 40px;
-        padding-bottom: 20px;
-        border-bottom: 1px solid #eee;
-    }
-    
-    .property-table {
-        width: 100%;
-        border-collapse: collapse;
-        margin: 15px 0;
-    }
-    
-    .property-table th, 
-    .property-table td {
-        border: 1px solid #ddd;
-        padding: 10px;
-        text-align: left;
-    }
-    
-    .property-table th {
-        background-color: #2c3e50;
-        color: white;
-    }
-    
-    .property-table tr:nth-child(even) {
-        background-color: #f9f9f9;
-    }
-    
-    .property-table code {
-        background-color: #f5f5f5;
-        padding: 2px 4px;
-        border-radius: 3px;
-        font-size: 0.9em;
-    }
-    
-    .comparison-table {
-        width: 100%;
-        border-collapse: collapse;
-        margin: 15px 0;
-    }
-    
-    .comparison-table th, 
-    .comparison-table td {
-        border: 1px solid #ddd;
-        padding: 12px;
-        text-align: left;
-    }
-    
-    .comparison-table th {
-        background-color: #2c3e50;
-        color: white;
-    }
-    
-    .comparison-table tr:nth-child(even) {
-        background-color: #f9f9f9;
-    }
-    .theory-container {
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
-    }
-    
-    .theory-group {
-        background-color: #f8f9fa;
-        padding: 20px;
-        border-radius: 8px;
-        border-left: 4px solid #2c3e50;
-    }
-    
-    .property-theory {
-        margin-bottom: 25px;
-        padding-bottom: 15px;
-        border-bottom: 1px dashed #ddd;
-    }
-    
-    .property-theory h4 {
-        color: #2c3e50;
-        margin-bottom: 10px;
-    }
-    
-    .property-theory ul {
-        margin-left: 20px;
-        line-height: 1.6;
-    }
-    
-    .property-theory code {
-        background-color: #f0f0f0;
-        padding: 2px 4px;
-        border-radius: 3px;
-        font-size: 0.9em;
-    }
-    
-    .note {
-        background-color: #e8f4f8;
-        padding: 20px;
-        border-radius: 8px;
-        border-left: 4px solid #4285f4;
-    }
-    
-    .note ol {
-        margin-left: 20px;
-    }
-    .concept-container {
-        display: flex;
-        flex-direction: column;
-        gap: 40px;
-    }
-    
-    .concept-group {
-        background-color: #f8f9fa;
-        padding: 25px;
-        border-radius: 8px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    
-    .theory-step {
-        margin-bottom: 30px;
-    }
-    
-    .box-model-visual {
-        border: 2px solid #333;
-        padding: 30px;
-        margin: 20px 0;
-        position: relative;
-        background-color: #f0f0f0;
-    }
-    
-    .box-model-visual div {
-        position: absolute;
-        padding: 10px;
-        text-align: center;
-        font-weight: bold;
-    }
-    
-    .box-content {
-        background-color: #d4edda;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 60%;
-        height: 60%;
-    }
-    
-    .box-padding {
-        background-color: #cce5ff;
-        top: 20%;
-        left: 20%;
-        width: 60%;
-        height: 60%;
-    }
-    
-    .box-border {
-        background-color: #fff3cd;
-        top: 10%;
-        left: 10%;
-        width: 80%;
-        height: 80%;
-        border: 2px dashed #333;
-    }
-    
-    .box-margin {
-        background-color: #f8d7da;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    }
-    
-    .units-table {
-        width: 100%;
-        border-collapse: collapse;
-        margin: 15px 0;
-    }
-    
-    .units-table th, 
-    .units-table td {
-        border: 1px solid #ddd;
-        padding: 10px;
-        text-align: left;
-    }
-    
-    .units-table th {
-        background-color: #2c3e50;
-        color: white;
-    }
-    
-    .units-table tr:nth-child(even) {
-        background-color: #f9f9f9;
-    }
-    
-    pre {
-        background-color: #f5f5f5;
-        padding: 15px;
-        border-radius: 5px;
-        overflow-x: auto;
-    }
-    
-    .note {
-        background-color: #e8f4f8;
-        padding: 20px;
-        border-radius: 8px;
-        border-left: 4px solid #4285f4;
-    }
-    .documentation-footer {
-        background-color: #2c3e50;
-        color: #ffffff;
-        padding: 30px 0;
-        margin-top: 50px;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-    
-    .footer-content {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-        text-align: center;
-    }
-    
-    .footer-content p {
-        margin: 10px 0;
-        line-height: 1.6;
-    }
-    
-    .footer-content strong {
-        color: #4285f4;
-        font-weight: 600;
-    }
-    
-    .footer-meta {
-        margin-top: 20px;
-        padding-top: 20px;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        font-size: 0.9em;
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-    }
-    
-    @media (max-width: 600px) {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .level {
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid;
+        }
+        
+        .basic { border-color: #4caf50; background-color: #e8f5e9; }
+        .intermediate { border-color: #2196f3; background-color: #e3f2fd; }
+        .advanced { border-color: #9c27b0; background-color: #f3e5f5; }
+        
+        /* Box Model Visual */
+        .box-model-visual {
+            border: 2px solid var(--text-color);
+            padding: 30px;
+            margin: 20px 0;
+            position: relative;
+            background-color: var(--gray-light);
+            min-height: 200px;
+        }
+        
+        .box-model-visual div {
+            position: absolute;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        /* Footer */
+        .documentation-footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+            text-align: center;
+        }
+        
         .footer-meta {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9em;
+            display: flex;
             flex-direction: column;
             gap: 5px;
         }
-    }
-
+        
+        /* Responsive Breakpoints */
+        @media (min-width: 768px) {
+            .level-track {
+                flex-direction: row;
+            }
+            
+            .level {
+                flex: 1;
+            }
+            
+            .footer-meta {
+                flex-direction: row;
+                justify-content: center;
+                gap: 20px;
+            }
+            
+            .box-content { top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60%; height: 60%; }
+            .box-padding { top: 20%; left: 20%; width: 60%; height: 60%; }
+            .box-border { top: 10%; left: 10%; width: 80%; height: 80%; }
+            .box-margin { top: 0; left: 0; width: 100%; height: 100%; }
+        }
+        
+        @media (min-width: 992px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            h3 { font-size: 1.75rem; }
+            h4 { font-size: 1.5rem; }
+            
+            .property-table, .comparison-table, 
+            .units-table, .master-property-table {
+                display: table;
+            }
+        }
+        
+        /* Print Styles */
+        @media print {
+            body {
+                background-color: var(--white);
+                font-size: 12pt;
+            }
+            
+            header, footer {
+                display: none;
+            }
+            
+            section {
+                page-break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid var(--gray-medium);
+            }
+            
+            .note {
+                border-left-width: 2px;
+            }
+        }
     </style>
 </head>
 <body>
